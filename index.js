@@ -1,3 +1,5 @@
+"use srtict";
+
 class Route {
   /**
    * Получаем JSON с данными
@@ -7,9 +9,13 @@ class Route {
     this.data = data;
   }
 
-  /** Функция для сортировки полученных точек */
-  getSortedWay() {
-    let data = this.data.slice(),
+  /**
+   * @description Функция для сортировки полученных точек
+   * @param {array} Массив точек, по умолчанию полученная data
+   * @return {array} Возвращаем массив отсортированных точек
+   */
+  getSortedWay(arr = this.data) {
+    let data = arr.slice(),
       newRoute = [],
       duration = data.length;
 
@@ -27,13 +33,16 @@ class Route {
       }
     }
 
-    /** Возвращаем массив отсортированных точек */
     return newRoute;
   }
 
-  /** Функция-генератор словесного описания */
-  generateWayPoints() {
-    let points = this.getSortedWay(),
+  /**
+   * @description Функция-генератор словесного описания
+   * @param {array} Массив точек, по умолчанию результат getSortedWay()
+   * @return {array} Возвращаем массив с готовыми фразами
+   */
+  generateWayPoints(arr = this.getSortedWay()) {
+    let points = arr,
       phrases = [];
     /** Генерируем фразы для каждой из точек */
     points.forEach(point => {
@@ -59,14 +68,13 @@ class Route {
           );
       }
     });
-    /** Возвращаем массив с готовыми фразами */
     return phrases;
   }
   /**
-   * Функция для вывода итогового маршрута
-   * Для примера выводим в документ
+   * @description Функция для теста вывода итогового маршрута
+   * Выводит в html документ в виде тегов <p>
    */
-  renderWay(tagName) {
+  renderWay() {
     let phrases = this.generateWayPoints();
     phrases.forEach(phrase => {
       document.write(
