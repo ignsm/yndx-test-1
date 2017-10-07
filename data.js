@@ -1,11 +1,12 @@
 var data = [
   {
-    transport_type: "train",
-    transport_num: "78A",
-    from: "Madrid",
-    to: "Barcelona",
-    seat: "45B",
-    comment: ""
+    transport_type: "flight",
+    transport_num: "SK455",
+    from: "Gerona Airport",
+    to: "Stockholm",
+    seat: "3A",
+    gate: "45B",
+    comment: "Baggage drop at ticket counter 344"
   },
   {
     transport_type: "the airport bus",
@@ -16,13 +17,12 @@ var data = [
     comment: ""
   },
   {
-    transport_type: "flight",
-    transport_num: "SK455",
-    from: "Gerona Airport",
-    to: "Stockholm",
-    seat: "3A",
-    gate: "45B",
-    comment: "Baggage drop at ticket counter 344"
+    transport_type: "train",
+    transport_num: "78A",
+    from: "Madrid",
+    to: "Barcelona",
+    seat: "45B",
+    comment: ""
   },
   {
     transport_type: "flight",
